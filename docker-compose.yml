@@ -1,6 +1,7 @@
 services:
 
-  php-ecosystem:
+  php:
+    container_name: php
     build: ./.docker/php/
     ports:
       - 8080:80
@@ -10,7 +11,8 @@ services:
     networks:
       - dev-ecosystem-network
 
-  node-ecosystem:
+  node:
+    container_name: node
     build: ./.docker/node/
     ports:
       - 3000:3000
@@ -21,6 +23,7 @@ services:
       - dev-ecosystem-network
   
   mysql:
+    container_name: mysql
     image: mysql:8.0.30-debian
     ports:
       - '${DB_PORT:-3306}:3306'
@@ -35,6 +38,7 @@ services:
       - dev-ecosystem-network
 
   redis:
+    container_name: redis
     image: 'redis:6.0.6'
     ports:
       - '6379:6379'
@@ -47,6 +51,7 @@ services:
       retries: 5
 
   redisinsight:
+    container_name: redisinsight
     image: 'redis/redisinsight:latest'
     ports:
       - '5540:5540'
