@@ -6,7 +6,6 @@ services:
     ports:
       - 8080:80
     volumes:
-      - .:/home/php/ecosystem
       - ./applications/php:/var/www
     networks:
       - dev-ecosystem-network
@@ -17,7 +16,6 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - .:/home/node/ecosystem
       - ./applications/node:/home/node
     networks:
       - dev-ecosystem-network
